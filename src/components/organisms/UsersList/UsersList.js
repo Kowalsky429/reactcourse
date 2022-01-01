@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import { users as usersData } from 'data/users';
 import UsersListItem from 'components/molecules/UsersListItem/UsersListItem';
-import { StyledList, StyledTitle, Wrapper } from './UsersList.styles';
+import { Wrapper, StyledTitle, StyledList } from 'components/molecules/ViewWrapper/ViewWrapper';
 
 const UsersList = ({ users, deleteUser }) => {
   return (
