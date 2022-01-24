@@ -17,7 +17,7 @@ const Root = () => {
         <MainTemplate>
           <Wrapper>
             <Routes exact>
-              <Route path="/" element={<Navigate to="/group/:id" />} />
+              <Route path="/" element={<Navigate to="/group/A" />} />
               <Route path="/group/:id" element={<Dashboard />} />
               <Route path="/add-user" element={<AddUser />} />
             </Routes>
