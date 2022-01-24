@@ -75,11 +75,15 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
+    "msw": "^0.36.5",
     "prettier": "^2.5.1"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "msw": {
+    "workerDirectory": "public"
+  }
 }
