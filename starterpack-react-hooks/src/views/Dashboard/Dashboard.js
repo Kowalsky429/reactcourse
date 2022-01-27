@@ -1,53 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
-import { Link, useParams } from 'react-router-dom';
-import UsersList from 'components/organisms/UsersList/UsersList';
-import styled from 'styled-components';
-
-const Nav = styled.div`
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-`;
-
-const NavTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.darkGrey};
-  margin-right: 15px;
-  span {
-    color: ${({ theme }) => theme.colors.success};
-  }
-`;
-
-const NavLinkItem = styled(Link)`
-  color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.darkGrey};
-  padding: 4px 8px;
-  border-radius: 50%;
-  margin: 0 10px;
-  &:hover {
-    background: ${({ theme }) => theme.colors.grey};
-  }
-`;
+import { Navigate, useParams } from 'react-router-dom';
+import StudentsList from 'components/organisms/UsersList/StudentsList';
+import { Nav, NavTitle, NavLinkItem } from './Dashboard.styles';
+import { useStudents } from 'hooks/useStudents';
 
 const Dashboard = () => {
-  const [students, setStudents] = useState([]);
-  const [groups, setGroups] = useState([]);
+  const { groups } = useStudents();
   const { id } = useParams();
 
-  useEffect(() => {
-    axios
-      .get('/groups')
-      .then(({ data }) => setGroups(data.groups))
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`/students/${id || groups[0]}`)
-      .then(({ data }) => setStudents(data.students))
-      .catch((err) => console.log(err));
-  }, [id, groups]);
+  if (!id && groups.length > 0) return <Navigate to={`/group/${groups[0]}`} />;
 
   return (
     <>
@@ -62,7 +24,7 @@ const Dashboard = () => {
             </NavLinkItem>
           ))}
         </Nav>
-        <UsersList users={students} />
+        <StudentsList />
       </ViewWrapper>
     </>
   );

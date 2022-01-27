@@ -5,8 +5,6 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import AddUser from 'views/AddUser/AddUser';
-import UsersProvider from 'provider/UsersProvider';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 
 const Root = () => {
@@ -16,10 +14,9 @@ const Root = () => {
         <GlobalStyle />
         <MainTemplate>
           <Wrapper>
-            <Routes exact>
-              <Route path="/" element={<Navigate to="/group/A" />} />
+            <Routes>
+              <Route exact path="/" element={<Navigate to="/group" />} />
               <Route path="/group/:id" element={<Dashboard />} />
-              <Route path="/add-user" element={<AddUser />} />
             </Routes>
           </Wrapper>
         </MainTemplate>

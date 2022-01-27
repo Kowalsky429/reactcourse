@@ -6,10 +6,7 @@ const Navigation = () => (
     <Logo>
       Studdy <br /> Buddy
     </Logo>
-    <StyledLink exact="true" to="/group">
-      Dashboard
-    </StyledLink>
-    <StyledLink to="/add-user">Add user</StyledLink>
+    <StyledLink to="/group">Dashboard</StyledLink>
   </Wrapper>
 );
 Navigation.propTypes = {};
