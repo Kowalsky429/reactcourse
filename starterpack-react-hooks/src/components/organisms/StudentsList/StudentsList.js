@@ -11,10 +11,10 @@ const StudentsList = () => {
   const { getStudents } = useStudents();
 
   useEffect(() => {
-    async () => {
+    (async () => {
       const students = await getStudents(id);
       setStudents(students);
-    };
+    })();
   }, [setStudents, id]);
 
   return (
