@@ -17,5 +17,7 @@ describe('Search Bar', () => {
     fireEvent.change(input, { target: { value: 'ad' } });
     await screen.findByText(/Adam Romański/);
   });
-  it('Dissapear when input is empty', () => {});
+  it('Dissapear when input is empty', () => {
+    fireEvent.change(input, { target: { value: '' } });
+  });
 });
