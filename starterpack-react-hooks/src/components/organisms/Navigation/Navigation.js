@@ -7,6 +7,14 @@ const Navigation = () => (
       Studdy <br /> Buddy
     </Logo>
     <StyledLink to="/group">Dashboard</StyledLink>
+    <StyledLink
+      as="a"
+      onClick={() => {
+        localStorage.removeItem('token');
+      }}
+    >
+      Log out
+    </StyledLink>
   </Wrapper>
 );
 Navigation.propTypes = {};
