@@ -32,6 +32,7 @@ export const StyledLink = styled(NavLink).attrs({ className: (isActive) => (isAc
   margin: 20px 25px;
   text-align: center;
   position: relative;
+  cursor: pointer;
   &.active {
     color: #5b63bd;
     &::after {
